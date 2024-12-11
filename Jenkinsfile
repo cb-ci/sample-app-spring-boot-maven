@@ -8,6 +8,13 @@ pipeline {
                   containers:
                     - name: maven
                       image: maven:3.9.5-eclipse-temurin-17-alpine
+                      env:
+                        - name: HTTP_PROXY
+                          value: http://your-proxy-url:port
+                        - name: HTTPS_PROXY
+                          value: http://your-proxy-url:port
+                        - name: NO_PROXY
+                          value: "localhost,127.0.0.1,.example.com"
                       command:
                         - sleep
                       args:
