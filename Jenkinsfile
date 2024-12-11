@@ -23,7 +23,7 @@ pipeline {
                 withMaven(
                         // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
                         mavenLocalRepo: '.repository',
-                        mavenSettingsConfig: 'global-maven-settings'
+                        //mavenSettingsConfig: 'global-maven-settings'
                 ) {
                     // Run the maven build
                     sh "mvn  clean install"
