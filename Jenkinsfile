@@ -25,6 +25,9 @@ pipeline {
     }
     stages {
         stage('Build') {
+            emvironment {
+                MAVEN_OPTS="-Dhttp.proxyHost=proxy.example.com -Dhttp.proxyPort=8080 -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=8080 -Dhttp.nonProxyHosts=localhost|127.0.0.1|*.example.com"
+            }   
             steps {
                 sh "env |sort"
                // Run the maven build
