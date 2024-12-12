@@ -26,15 +26,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //see https://plugins.jenkins.io/pipeline-maven/
-                withMaven(
-                        // Use `$WORKSPACE/.repository` for local repository folder to avoid shared repositories
-                        mavenLocalRepo: '.repository',
-                        //mavenSettingsConfig: 'global-maven-settings'
-                ) {
-                    // Run the maven build
-                    sh "mvn  clean install"
-                }
+                sh "env |sort"
+               // Run the maven build
+                sh "mvn -Dmaven.repo.local=/tmp/m2 clean install"
                 archiveArtifacts "target/*.war"
             }
         }
