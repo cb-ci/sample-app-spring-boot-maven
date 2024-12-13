@@ -3,6 +3,9 @@ Springboot-demo
 # Build 
 > mvn clean install
 
+Review and modify the settings file first (Proxy settings)
+> mvn clean install -U -Dmaven.repo.local=/tmp/m2 -s settings.xml  
+
 # Docker
 
 see https://spring.io/guides/topicals/spring-boot-docker/
